@@ -24,6 +24,7 @@ int main()
 	Host::Start([](auto) {}, [](auto) {}, [](auto&) {}, [](auto&) {}, [](TextThread& thread, std::wstring& output)
 	{
 		ReplaceString(output,L"\n",L"<br>");
+		ReplaceString(output, L"\r", L"");
 		wprintf_s(L"[%I64X:%I32X:%I64X:%I64X:%I64X:%s:%s] %s\n",
 			thread.handle,
 			thread.tp.processId,
